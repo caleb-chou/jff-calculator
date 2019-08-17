@@ -2,14 +2,19 @@ package com.coolcatcoding.nobscalculator;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import static java.lang.Float.*;
+
 public class MainActivity extends AppCompatActivity {
 
+    private static int action  =0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +29,32 @@ public class MainActivity extends AppCompatActivity {
                 TextView result = (TextView) findViewById(R.id.result);
 
                 try {
-                    int num1 = Integer.parseInt(part1.getText().toString());
-                    int num2 = Integer.parseInt(part2.getText().toString());
-                    result.setText(""+(num1+num2));
+                    float num1 = parseFloat(part1.getText().toString());
+                    float num2 = parseFloat(part2.getText().toString());
+                    float r;
+                    switch(action) {
+                        case 0: r = (num1+num2); break;
+                        case 1: r = (num1-num2); break;
+                        case 2: r = (num1*num2); break;
+                        case 3: r = (num1/num2); break;
+                        default: r = 0;
+                    }
+                    result.setText(""+r);
                 } catch(Exception e) {
                     result.setText("Error. You broke it. This is your fault.");
                 }
+            }
+        });
+        Spinner actionSpinner = (Spinner) findViewById(R.id.actionSpinner);
+        actionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                action = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
