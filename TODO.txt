@@ -1,2 +1,7 @@
 TODO LIST:
+1. Create GUI
+2. Program methods (+-*/=)
+3. Test to make sure it works
+
+Done:
 1. Start working
