@@ -14,7 +14,7 @@ import static java.lang.Float.*;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int action  =0;
+    private static int action;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

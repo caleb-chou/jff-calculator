@@ -2,9 +2,9 @@
     <string name="app_name">NoBSCalculator</string>
     <string name="prompt">Choose an action</string>
     <string-array name="actions">
-        <item>"+"</item>
-        <item>"-"</item>
-        <item>"*"</item>
-        <item>"/"</item>
+        <item>"Add"</item>
+        <item>"Sub"</item>
+        <item>"Mult"</item>
+        <item>"Div"</item>
     </string-array>
 </resources>
